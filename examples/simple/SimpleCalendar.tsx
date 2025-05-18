@@ -1,8 +1,8 @@
 import React from "react";
 import dayjs from "dayjs";
 
-import { cn } from "../../packages/ui/src/lib/utils";
-import { useHeadlessDatePicker } from "../../apps/web/src/components/headless-date-picker";
+import { cn } from "./utils";
+import { useHeadlessDatePicker } from "./headless-date-picker";
 
 type DateOption = {
   type: "date";
@@ -76,19 +76,19 @@ export default function SimpleCalendar() {
                     .toDate();
                   const newOption: DateTimeOption = !isTimedEvent
                     ? {
-                        type: "date",
-                        date: formatDateWithoutTime(selectedDate),
-                      }
+                      type: "date",
+                      date: formatDateWithoutTime(selectedDate),
+                    }
                     : {
-                        type: "timeSlot",
-                        start: formatDateWithoutTz(selectedDate),
-                        duration,
-                        end: formatDateWithoutTz(
-                          dayjs(selectedDate)
-                            .add(duration, "minutes")
-                            .toDate(),
-                        ),
-                      };
+                      type: "timeSlot",
+                      start: formatDateWithoutTz(selectedDate),
+                      duration,
+                      end: formatDateWithoutTz(
+                        dayjs(selectedDate)
+                          .add(duration, "minutes")
+                          .toDate(),
+                      ),
+                    };
 
                   onChange([...options, newOption]);
                   onNavigate(selectedDate);
