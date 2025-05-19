@@ -59,15 +59,7 @@ The following instructions are for running the project locally for development.
 
 5. Setup database
 
-   You will need to have [Docker](https://docs.docker.com/get-docker/) installed and running to run the database using the provided docker-compose file.
-
-   To start the database, run:
-
-   ```bash
-   yarn docker:up
-   ```
-
-   Next run the following command to setup the database:
+   Run the following command to setup the development database:
 
    ```bash
    yarn db:reset
